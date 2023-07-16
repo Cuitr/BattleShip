@@ -23,8 +23,8 @@ let model = {
     { locations: [0, 0, 0], hits: ["", "", ""] }],
     fire: function(guess) {
         for (let i = 0; i < this.numShips; i++) {
-        var ship = this.ships[i];
-        var index = ship.locations.indexOf(guess);
+        let ship = this.ships[i];
+        let index = ship.locations.indexOf(guess);
             if (index >= 0) {
             ship.hits[index] = "hit";
             view.displayHit(guess);
@@ -43,8 +43,8 @@ let model = {
    },
    isSunk: function(ship) {
     for (let i = 0; i < this.shipLength; i++) {
-    if (ship.hits[i] !== "hit") {
-    return false;
+    if (ship.hits[i] !== "hit"){
+        return false;
     }
     }
     return true;
@@ -72,9 +72,9 @@ let model = {
         let newShipLocations = [];
         for (let i = 0; i < this.shipLength; i++){
             if(direction === 1){
-                newShipLocations.push(row + "" +(col + i));// may be there are mistakes at syntax
+                newShipLocations.push(`${row}${col + i}`);// may be there are mistakes at syntax
             }else{
-                newShipLocations.push((row + i) + "" + col);//may be there are mistakes at syntax
+                newShipLocations.push(`${row + i}${col}`);//may be there are mistakes at syntax
             }
         }
         return newShipLocations;
